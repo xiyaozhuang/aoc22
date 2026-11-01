@@ -1,0 +1,23 @@
+name: ci
+on: pull_request
+
+jobs:
+  static-checks:
+    name: Static checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+
+        with:
+          python-version-file: pyproject.toml
+
+      - name: Install project
+        run: pip install ".[dev]"
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files

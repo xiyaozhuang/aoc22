@@ -1,0 +1,11 @@
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[project]
+name = "aoc22"
+version = "0.0.0"
+requires-python = ">=3.15.2"
+
+[project.optional-dependencies]
+dev = ["pre-commit==4.7.0"]
